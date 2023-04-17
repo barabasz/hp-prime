@@ -1,0 +1,4 @@
+EXPORT Logic()
+BEGIN
+
+END;
