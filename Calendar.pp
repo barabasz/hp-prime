@@ -1,5 +1,5 @@
-// Calendar functions
-// JMB - September 2018
+// Calendar functions (https://www.hpmuseum.org/forum/thread-11436.html)
+// JMB - September 2018 (https://www.hpmuseum.org/forum/user-3985.html)
 
 // Valid dates must be entered in YYYY.MMDD format, in the range 1582.1015 to 9999.1231
 // Valid times must be entered in HMS format. For example: 15°23'44" (15 h 23 min 44 s)
@@ -9,13 +9,11 @@
 // For example: TimeZone:=5°30' (UTC + 5.5 hours), DaylightSavingTime:=1 (1=DST on, 0=DST off) 
 
 #pragma mode( separator(.,;) integer(h32) )
-LOCAL TimeZone:=1°;
-LOCAL DaylightSavingTime:=1;
 
 Date_to_JDNumber(d) //Auxiliary function
 // d:date → Julian Day Number
 BEGIN
-  RETURN ;
+  RETURN 2299161+DDAYS(1582.1015,d);
 END;
 
 JDNumber_to_Date(jdn) //Auxiliary function
@@ -276,5 +274,4 @@ EXPORT Now_MJD
 BEGIN
   LOCAL n := Now;
   RETURN n(4);
-END;
-
+END; 
